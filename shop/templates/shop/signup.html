@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>SignUp</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'shop/signup.css'%}">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body class="text-left">
+
+
+
+
+    <main class="form-signin">
+
+        <!-- message alert -->
+
+        <center>
+
+            <div class="container alrt">
+                {% for message in messages %}
+                <p>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                </p>
+                {% endfor %}
+            </div>
+        </center>
+
+        <!-- message alert ends -->
+
+
+
+        <!-- signup form  -->
+
+        <form method="POST" action="signup">
+            {% csrf_token %}
+
+            <h1 class="h3 mb-3 fw-normal" style="text-align: center; color:#F0533A; font-size: 40px;">
+                <b>Please sign up</b>
+            </h1>
+
+            <br>
+
+            <label for="username" class="visually-hidden" style="color: #0740A3;">User Name</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="User Name" required
+                autofocus><br>
+
+            <label for="email" class="visually-hidden" style="color: #0740A3;">Email address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required
+                autofocus>
+            <br>
+
+            <label for="password" class="visually-hidden" style="color: #0740A3;">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+            <br>
+
+            <label for="confirm_password" class="visually-hidden" style="color: #0740A3;">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                placeholder="Confirm Password" required>
+
+            <br>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+
+        </form>
+
+        <center>
+            <h4 style="text-align: center; color:#7A24F0; font-size:30px;">or</h4>
+        </center>
+
+        <a href="login"> <button class="w-100 btn btn-lg" type="button"
+                style="background:#00D974; color: white;">LogIn</button></a>
+
+    </main>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LogIn</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{%static 'shop/signup.css'%}">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="text-left">
+
+
+
+
+
+  <main class="form-signin">
+
+    <!-- message alert -->
+
+    <center>
+      <div class="container alrt">
+        {% for message in messages %}
+        <p>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        </p>
+        {% endfor %}
+      </div>
+    </center>
+
+    <!-- message alert ends -->
+
+
+
+    <!-- login form  -->
+    <form method="POST" action="login">
+
+      {% csrf_token %}
+
+      <h1 class="h3 mb-3 fw-normal" style="text-align: center; color:#7A24F0; font-size:40px;">Please Log In</h1>
+      <br><br>
+
+      <label for="username" class="visually-hidden" style="color: #E918F0;">User Name</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>
+      <br>
+
+      <label for="password" class="visually-hidden" style="color: #E918F0;">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+      <br>
+
+      <button class="w-100 btn btn-lg" type="submit" style="background: #00D974; color: white;">Log in</button>
+
+    </form>
+
+    <center>
+      <h4 style="text-align: center; color:#7A24F0; font-size:30px;">or</h4>
+    </center>
+
+    <a href="signup"> <button class="w-100 btn btn-lg" type="button" style="background: #1797ff; color: white;">Sign
+        Up</button></a>
+
+  </main>
+
+
+
+</body>
+
+</html>
